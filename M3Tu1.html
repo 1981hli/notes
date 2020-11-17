@@ -1,0 +1,548 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>M3Tu1</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="tu-流形导论" class="md-header-anchor"></a><span>Tu: 流形导论</span></h1><p>&nbsp;</p><h1><a name="欧氏空间" class="md-header-anchor"></a><span>[欧氏空间]</span></h1><p>&nbsp;</p><h2><a name="1-欧氏空间的光滑函数" class="md-header-anchor"></a><span>1 欧氏空间的光滑函数</span></h2><h3><a name="11-cinfty函数和解析函数" class="md-header-anchor"></a><span>1.1 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.671ex" height="1.972ex" viewBox="0 -766.5 1580.7 849" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E100-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E100-MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E100-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E100-MJMAIN-221E" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^\infty</script><span>函数和解析函数</span></h3><ul><li><span>[1.1] </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.885ex" height="2.344ex" viewBox="0 -906.7 1242 1009.2" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E94-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E94-MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E94-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E94-MJMATHI-6B" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^k</script><span>性; </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.671ex" height="1.972ex" viewBox="0 -766.5 1580.7 849" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E100-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E100-MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E100-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E100-MJMAIN-221E" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^\infty</script><span>性</span></li></ul><h3><a name="12-带余项的taylor定理" class="md-header-anchor"></a><span>1.2 带余项的Taylor定理</span></h3><p>&nbsp;</p><h2><a name="2-mathbbrn的切矢量作为derivation" class="md-header-anchor"></a><span>2 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>的切矢量作为derivation</span></h2><h3><a name="21-方向导数" class="md-header-anchor"></a><span>2.1 方向导数</span></h3><h3><a name="22-函数芽" class="md-header-anchor"></a><span>2.2 函数芽</span></h3><h3><a name="23-一点的derivation" class="md-header-anchor"></a><span>2.3 一点的derivation</span></h3><h3><a name="24-矢量场" class="md-header-anchor"></a><span>2.4 矢量场</span></h3><ul><li><span>[2.4] R模</span></li><li><span>[2.5] R模同态</span></li></ul><h3><a name="25-矢量场作为derivation" class="md-header-anchor"></a><span>2.5 矢量场作为derivation</span></h3><p>&nbsp;</p><h2><a name="3-多重余矢量的外代数" class="md-header-anchor"></a><span>3 多重余矢量的外代数</span></h2><h3><a name="31-对偶空间" class="md-header-anchor"></a><span>3.1 对偶空间</span></h3><h3><a name="32-置换" class="md-header-anchor"></a><span>3.2 置换</span></h3><h3><a name="33-多重线性函数" class="md-header-anchor"></a><span>3.3 多重线性函数</span></h3><ul><li><span>[3.10] 多重线性函数的对称, 反称</span></li></ul><h3><a name="34-多重线性函数的置换" class="md-header-anchor"></a><span>3.4 多重线性函数的置换</span></h3><h3><a name="35-对称算子和反称算子" class="md-header-anchor"></a><span>3.5 对称算子和反称算子</span></h3><h3><a name="36-张量积" class="md-header-anchor"></a><span>3.6 张量积</span></h3><h3><a name="37-楔积" class="md-header-anchor"></a><span>3.7 楔积</span></h3><h3><a name="38-楔积的反对易" class="md-header-anchor"></a><span>3.8 楔积的反对易</span></h3><h3><a name="39-楔积的结合律" class="md-header-anchor"></a><span>3.9 楔积的结合律</span></h3><h3><a name="310-k重余矢量的基" class="md-header-anchor"></a><span>3.10 k重余矢量的基</span></h3><p>&nbsp;</p><h2><a name="4-mathbbrn上的微分形式" class="md-header-anchor"></a><span>4 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>上的微分形式</span></h2><h3><a name="41-微分1形式和函数的微分" class="md-header-anchor"></a><span>4.1 微分1形式和函数的微分</span></h3><h3><a name="42-微分k形式" class="md-header-anchor"></a><span>4.2 微分k形式</span></h3><h3><a name="43-微分形式作为矢量场上的多重线性函数" class="md-header-anchor"></a><span>4.3 微分形式作为矢量场上的多重线性函数</span></h3><h3><a name="44-外导数" class="md-header-anchor"></a><span>4.4 外导数</span></h3><ul><li><span>[4.5] 微分形式的微分</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.659ex" height="1.994ex" viewBox="0 -755.9 1145 858.4" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E96-MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="0" id="E96-MJMATHI-3C9" d="M495 384Q495 406 514 424T555 443Q574 443 589 425T604 364Q604 334 592 278T555 155T483 38T377 -11Q297 -11 267 66Q266 68 260 61Q201 -11 125 -11Q15 -11 15 139Q15 230 56 325T123 434Q135 441 147 436Q160 429 160 418Q160 406 140 379T94 306T62 208Q61 202 61 187Q61 124 85 100T143 76Q201 76 245 129L253 137V156Q258 297 317 297Q348 297 348 261Q348 243 338 213T318 158L308 135Q309 133 310 129T318 115T334 97T358 83T393 76Q456 76 501 148T546 274Q546 305 533 325T508 357T495 384Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E96-MJMATHI-64" x="0" y="0"></use><use xlink:href="#E96-MJMATHI-3C9" x="523" y="0"></use></g></svg></span><script type="math/tex">d\omega</script></li><li><span>[4.6] graded代数上的antiderivation</span></li></ul><h3><a name="45-closed形式和exact形式" class="md-header-anchor"></a><span>4.5 closed形式和exact形式</span></h3><h3><a name="46-应用到矢量微积分" class="md-header-anchor"></a><span>4.6 应用到矢量微积分</span></h3><h3><a name="47-上角标和下角标约定" class="md-header-anchor"></a><span>4.7 上角标和下角标约定</span></h3><p>&nbsp;</p><h1><a name="流形" class="md-header-anchor"></a><span>[流形]</span></h1><p>&nbsp;</p><h2><a name="5-流形" class="md-header-anchor"></a><span>5 流形</span></h2><h3><a name="51-拓扑流形" class="md-header-anchor"></a><span>5.1 拓扑流形</span></h3><ul><li><span>[5.1] 拓扑空间的局部欧氏; chart; 坐标邻域</span></li><li><span>[5.2] 拓扑流形, 维数</span></li></ul><h3><a name="52-相容的chart" class="md-header-anchor"></a><span>5.2 相容的chart</span></h3><ul><li><span>[5.5] 拓扑流形间的</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.671ex" height="1.972ex" viewBox="0 -766.5 1580.7 849" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E100-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E100-MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E100-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E100-MJMAIN-221E" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^\infty</script><span>-compatible; transition函数</span></li><li><span>[5.6] atlas</span></li></ul><h3><a name="53-光滑流形" class="md-header-anchor"></a><span>5.3 光滑流形</span></h3><ul><li><span>[5.9] 光滑流形, 微分结构; 流形的维数, 曲线, 曲面, n流形</span></li></ul><h3><a name="54-光滑流形实例" class="md-header-anchor"></a><span>5.4 光滑流形实例</span></h3><p>&nbsp;</p><h2><a name="6-流形上的光滑映射" class="md-header-anchor"></a><span>6 流形上的光滑映射</span></h2><h3><a name="61-流形上的光滑函数" class="md-header-anchor"></a><span>6.1 流形上的光滑函数</span></h3><ul><li><span>[6.1] 函数在一点的光滑; 函数在流形上的光滑</span></li><li><span>[6.4] pullback</span></li></ul><h3><a name="62-流形间的光滑映射" class="md-header-anchor"></a><span>6.2 流形间的光滑映射</span></h3><ul><li><span>[6.5] 流形间映射在一点的光滑; 在整个流形的光滑</span></li></ul><h3><a name="63-微分同胚" class="md-header-anchor"></a><span>6.3 微分同胚</span></h3><h3><a name="64-分量表达的光滑性" class="md-header-anchor"></a><span>6.4 分量表达的光滑性</span></h3><h3><a name="65-光滑映射实例" class="md-header-anchor"></a><span>6.5 光滑映射实例</span></h3><ul><li><span>[6.20] Lie群</span></li></ul><h3><a name="66-偏导数" class="md-header-anchor"></a><span>6.6 偏导数</span></h3><ul><li><span>[6.23] Jacobi矩阵, Jacobi行列式</span></li></ul><h3><a name="67-反函数定理" class="md-header-anchor"></a><span>6.7 反函数定理</span></h3><p>&nbsp;</p><h2><a name="7-商" class="md-header-anchor"></a><span>7 商</span></h2><h3><a name="71-商拓扑" class="md-header-anchor"></a><span>7.1 商拓扑</span></h3><h3><a name="72-商上的映射的连续性" class="md-header-anchor"></a><span>7.2 商上的映射的连续性</span></h3><h3><a name="73-一点的子集的认同" class="md-header-anchor"></a><span>7.3 一点的子集的认同</span></h3><h3><a name="74-hausdorff商的一个必要条件" class="md-header-anchor"></a><span>7.4 Hausdorff商的一个必要条件</span></h3><h3><a name="75-开等价关系" class="md-header-anchor"></a><span>7.5 开等价关系</span></h3><ul><li><span>[7.5] 拓扑空间上的等价关系的open</span></li></ul><h3><a name="76-实投影空间" class="md-header-anchor"></a><span>7.6 实投影空间</span></h3><h3><a name="77-实投影空间上的标准cinftyatlas" class="md-header-anchor"></a><span>7.7 实投影空间上的标准</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.671ex" height="1.972ex" viewBox="0 -766.5 1580.7 849" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E100-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E100-MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E100-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E100-MJMAIN-221E" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^\infty</script><span>atlas</span></h3><p>&nbsp;</p><h1><a name="切空间" class="md-header-anchor"></a><span>[切空间]</span></h1><p>&nbsp;</p><h2><a name="8-切空间" class="md-header-anchor"></a><span>8 切空间</span></h2><h3><a name="81-一点的切空间" class="md-header-anchor"></a><span>8.1 一点的切空间</span></h3><ul><li><span>[8.1] 流形一点的切矢量</span></li></ul><h3><a name="82-映射的微分" class="md-header-anchor"></a><span>8.2 映射的微分</span></h3><h3><a name="83-链式法则" class="md-header-anchor"></a><span>8.3 链式法则</span></h3><h3><a name="84-一点的切空间的基" class="md-header-anchor"></a><span>8.4 一点的切空间的基</span></h3><h3><a name="85-微分的局部表达" class="md-header-anchor"></a><span>8.5 微分的局部表达</span></h3><h3><a name="86-流形中的曲线" class="md-header-anchor"></a><span>8.6 流形中的曲线</span></h3><h3><a name="87-由曲线计算微分" class="md-header-anchor"></a><span>8.7 由曲线计算微分</span></h3><h3><a name="88-immersion和submersion" class="md-header-anchor"></a><span>8.8 immersion和submersion</span></h3><h3><a name="89-秩-临界点-常规点" class="md-header-anchor"></a><span>8.9 秩, 临界点, 常规点</span></h3><ul><li><span>[8.22] 流形的嵌入的critical点, regular点, critical值, regular值</span></li></ul><p>&nbsp;</p><h2><a name="9-子流形" class="md-header-anchor"></a><span>9 子流形</span></h2><h3><a name="91-子流形" class="md-header-anchor"></a><span>9.1 子流形</span></h3><ul><li><span>[9.1] regular子流形</span></li><li><span>[9.2] codimension</span></li></ul><h3><a name="92-函数的水平集" class="md-header-anchor"></a><span>9.2 函数的水平集</span></h3><h3><a name="93-常规水平集定理" class="md-header-anchor"></a><span>9.3 常规水平集定理</span></h3><h3><a name="94-常规子流形的实例" class="md-header-anchor"></a><span>9.4 常规子流形的实例</span></h3><p>&nbsp;</p><h2><a name="10-范畴和函子" class="md-header-anchor"></a><span>10 范畴和函子</span></h2><h3><a name="101-范畴" class="md-header-anchor"></a><span>10.1 范畴</span></h3><ul><li><span>[10.1] 范畴的isomorphic, isomorphism</span></li></ul><h3><a name="102-函子" class="md-header-anchor"></a><span>10.2 函子</span></h3><ul><li><span>[10.2] 函子/协变函子</span></li><li><span>[10.4] contravariant函子</span></li></ul><h3><a name="103-对偶函子和多重余矢量函子" class="md-header-anchor"></a><span>10.3 对偶函子和多重余矢量函子</span></h3><p>&nbsp;</p><h2><a name="11-光滑映射的秩" class="md-header-anchor"></a><span>11 光滑映射的秩</span></h2><h3><a name="111-常秩定理" class="md-header-anchor"></a><span>11.1 常秩定理</span></h3><h3><a name="112-immersion和submersion定理" class="md-header-anchor"></a><span>11.2 immersion和submersion定理</span></h3><h3><a name="113-光滑映射的像" class="md-header-anchor"></a><span>11.3 光滑映射的像</span></h3><ul><li><span>[11.11] 流形到流形的embedding</span></li></ul><h3><a name="114-到子流形的光滑映射" class="md-header-anchor"></a><span>11.4 到子流形的光滑映射</span></h3><h3><a name="115-mathbbr3中曲面的切平面" class="md-header-anchor"></a><span>11.5 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.73ex" height="2.346ex" viewBox="0 -927.5 1175.6 1010" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E99-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E99-MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E99-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E99-MJMAIN-33" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^3</script><span>中曲面的切平面</span></h3><p>&nbsp;</p><h2><a name="12-切丛" class="md-header-anchor"></a><span>12 切丛</span></h2><h3><a name="121-切丛的拓扑" class="md-header-anchor"></a><span>12.1 切丛的拓扑</span></h3><h3><a name="122-切丛上的流形结构" class="md-header-anchor"></a><span>12.2 切丛上的流形结构</span></h3><h3><a name="123-矢量丛" class="md-header-anchor"></a><span>12.3 矢量丛</span></h3><h3><a name="124-光滑截面" class="md-header-anchor"></a><span>12.4 光滑截面</span></h3><ul><li><span>[12.7] 流形上的矢量场</span></li></ul><h3><a name="125-光滑标架" class="md-header-anchor"></a><span>12.5 光滑标架</span></h3><p>&nbsp;</p><h2><a name="13-冲击函数和单位分解" class="md-header-anchor"></a><span>13 冲击函数和单位分解</span></h2><h3><a name="131-cinfty冲击函数" class="md-header-anchor"></a><span>13.1 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.671ex" height="1.972ex" viewBox="0 -766.5 1580.7 849" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E100-MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="0" id="E100-MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E100-MJMATHI-43" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E100-MJMAIN-221E" x="1093" y="513"></use></g></svg></span><script type="math/tex">C^\infty</script><span>冲击函数</span></h3><h3><a name="132-单位分解" class="md-header-anchor"></a><span>13.2 单位分解</span></h3><ul><li><span>[13.4] 流形上的单位分解; 开覆盖的从属</span></li></ul><h3><a name="133-单位分解的存在性" class="md-header-anchor"></a><span>13.3 单位分解的存在性</span></h3><p>&nbsp;</p><h2><a name="14-矢量场" class="md-header-anchor"></a><span>14 矢量场</span></h2><h3><a name="141-矢量场的光滑性" class="md-header-anchor"></a><span>14.1 矢量场的光滑性</span></h3><h3><a name="142-积分曲线" class="md-header-anchor"></a><span>14.2 积分曲线</span></h3><ul><li><span>[14.5] 矢量场的积分曲线</span></li><li><span>[14.6] 积分曲线的极大</span></li></ul><h3><a name="143-局部流" class="md-header-anchor"></a><span>14.3 局部流</span></h3><ul><li><span>[14.9] 局部流</span></li></ul><h3><a name="144-lie括号" class="md-header-anchor"></a><span>14.4 Lie括号</span></h3><ul><li><span>[14.12] 域上的Lie代数</span></li><li><span>[14.13] Lie代数的derivation</span></li></ul><h3><a name="145-矢量场的推前" class="md-header-anchor"></a><span>14.5 矢量场的推前</span></h3><h3><a name="146-相关矢量场" class="md-header-anchor"></a><span>14.6 相关矢量场</span></h3><ul><li><span>[14.14] 由流形间映射所关联的矢量场 (push forward)</span></li></ul><p>&nbsp;</p><h1><a name="lie群和lie代数" class="md-header-anchor"></a><span>[Lie群和Lie代数]</span></h1><p>&nbsp;</p><h2><a name="15-lie群" class="md-header-anchor"></a><span>15 Lie群</span></h2><h3><a name="151-lie群实例" class="md-header-anchor"></a><span>15.1 Lie群实例</span></h3><ul><li><span>[15.1] Lie群</span></li><li><span>[15.3] Lie群的homomorphism</span></li></ul><h3><a name="152-lie子群" class="md-header-anchor"></a><span>15.2 Lie子群</span></h3><ul><li><span>[15.8] Lie子群</span></li></ul><h3><a name="153-矩阵指数映射" class="md-header-anchor"></a><span>15.3 矩阵指数映射</span></h3><h3><a name="154-矩阵的迹" class="md-header-anchor"></a><span>15.4 矩阵的迹</span></h3><h3><a name="155-恒元的行列式的微分" class="md-header-anchor"></a><span>15.5 恒元的行列式的微分</span></h3><p>&nbsp;</p><h2><a name="16-lie代数" class="md-header-anchor"></a><span>16 Lie代数</span></h2><h3><a name="161-lie群的恒元的切空间" class="md-header-anchor"></a><span>16.1 Lie群的恒元的切空间</span></h3><h3><a name="162-lie群上的左不变矢量场" class="md-header-anchor"></a><span>16.2 Lie群上的左不变矢量场</span></h3><h3><a name="163-lie群的lie代数" class="md-header-anchor"></a><span>16.3 Lie群的Lie代数</span></h3><h3><a name="164-mathfrakglnmathbbr上的lie括号" class="md-header-anchor"></a><span>16.4 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.731ex" height="2.626ex" viewBox="0 -806.8 3328.7 1130.7" role="img" focusable="false" style="vertical-align: -0.752ex;"><defs><path stroke-width="0" id="E101-MJFRAK-67" d="M27 -144L17 -131L82 -75L146 -20L126 6Q99 37 92 48L78 65L77 79Q75 103 75 158Q75 217 78 268T86 343T91 368Q92 370 109 382T157 413T222 452Q240 465 249 469L251 470Q296 443 350 428L365 424L437 465L442 459Q442 456 441 453T437 444T432 424T427 385T423 317T421 215V133L423 119Q423 111 455 -17Q455 -21 380 -108T290 -201Q290 -202 284 -204T269 -207T252 -209Q172 -209 75 -135L62 -126Q60 -126 44 -135L27 -144ZM349 351Q267 359 178 389Q177 387 173 376T166 358T161 337T157 303T155 259Q155 195 159 135L160 124L170 112Q180 101 204 77T230 53Q231 53 286 88L340 123V141Q340 235 348 329Q348 334 348 339T348 348L349 351ZM364 -59Q364 -37 358 -1T347 64T341 93Q336 93 252 28T149 -57Q226 -134 293 -134Q325 -134 344 -118T364 -69V-59Z"></path><path stroke-width="0" id="E101-MJFRAK-6C" d="M221 76L267 99Q268 98 269 96T271 88T270 82L262 76Q255 69 241 57T214 34L148 -20L98 56L99 89Q107 247 107 373Q107 494 101 621Q101 653 99 659V665L106 668L113 672L118 655Q122 642 131 617L138 597Q140 597 157 611L240 670L264 685Q265 685 270 680T276 674T269 667T247 647T219 617Q197 587 186 551T173 493T171 438Q171 376 175 282T179 147V117Q184 109 201 93T221 76Z"></path><path stroke-width="0" id="E101-MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="0" id="E101-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E101-MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="0" id="E101-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E101-MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E101-MJFRAK-67" x="0" y="0"></use><use xlink:href="#E101-MJFRAK-6C" x="504" y="0"></use><use xlink:href="#E101-MJMAIN-28" x="784" y="0"></use><use xlink:href="#E101-MJMATHI-6E" x="1173" y="0"></use><use xlink:href="#E101-MJMAIN-2C" x="1773" y="0"></use><use xlink:href="#E101-MJAMS-52" x="2217" y="0"></use><use xlink:href="#E101-MJMAIN-29" x="2939" y="0"></use></g></svg></span><script type="math/tex">\mathfrak{gl}(n,\mathbb{R})</script><span>上的Lie括号</span></h3><h3><a name="165-左不变矢量场的推前" class="md-header-anchor"></a><span>16.5 左不变矢量场的推前</span></h3><ul><li><span>[16.12?]  The Pushforward of Left-Invariant Vector Fields</span></li></ul><h3><a name="166-微分作为lie代数同态" class="md-header-anchor"></a><span>16.6 微分作为Lie代数同态</span></h3><p>&nbsp;</p><h1><a name="微分形式" class="md-header-anchor"></a><span>[微分形式]</span></h1><p>&nbsp;</p><h2><a name="17-微分1-form" class="md-header-anchor"></a><span>17 微分1-form</span></h2><h3><a name="171-函数的微分" class="md-header-anchor"></a><span>17.1 函数的微分</span></h3><ul><li><span>[17.1] 函数的微分</span></li></ul><h3><a name="172-微分1-form的局部表达" class="md-header-anchor"></a><span>17.2 微分1-form的局部表达</span></h3><h3><a name="173-余切丛" class="md-header-anchor"></a><span>17.3 余切丛</span></h3><h3><a name="174-光滑1-form的表征" class="md-header-anchor"></a><span>17.4 光滑1-form的表征</span></h3><h3><a name="175-1-form的拉回" class="md-header-anchor"></a><span>17.5 1-form的拉回</span></h3><h3><a name="176-限制1-form在immersed子流形" class="md-header-anchor"></a><span>17.6 限制1-form在immersed子流形</span></h3><p>&nbsp;</p><h2><a name="18-微分k-form" class="md-header-anchor"></a><span>18 微分k-form</span></h2><h3><a name="181-微分形式" class="md-header-anchor"></a><span>18.1 微分形式</span></h3><h3><a name="182-k-form的局部表达" class="md-header-anchor"></a><span>18.2 k-form的局部表达</span></h3><h3><a name="183-丛的观点" class="md-header-anchor"></a><span>18.3 丛的观点</span></h3><h3><a name="184-光滑k-form" class="md-header-anchor"></a><span>18.4 光滑k-form</span></h3><h3><a name="185-k-form的拉回" class="md-header-anchor"></a><span>18.5 k-form的拉回</span></h3><h3><a name="186-楔积" class="md-header-anchor"></a><span>18.6 楔积</span></h3><h3><a name="187-圆上的微分形式" class="md-header-anchor"></a><span>18.7 圆上的微分形式</span></h3><h3><a name="188-lie群上的不变形式" class="md-header-anchor"></a><span>18.8 Lie群上的不变形式</span></h3><p>&nbsp;</p><h2><a name="19-外导数" class="md-header-anchor"></a><span>19 外导数</span></h2><ul><li><span>[19.1] 流形上的外导数</span></li></ul><h3><a name="191-坐标chart上的外导数" class="md-header-anchor"></a><span>19.1 坐标chart上的外导数</span></h3><h3><a name="192-局部算子" class="md-header-anchor"></a><span>19.2 局部算子</span></h3><ul><li><span>[19.2] 外导数的局部性</span></li></ul><h3><a name="193-流形上的外导数的存在性" class="md-header-anchor"></a><span>19.3 流形上的外导数的存在性</span></h3><h3><a name="194-外导数的唯一性" class="md-header-anchor"></a><span>19.4 外导数的唯一性</span></h3><h3><a name="195-拉回下的外微分" class="md-header-anchor"></a><span>19.5 拉回下的外微分</span></h3><h3><a name="196-限制k-form在子流形上" class="md-header-anchor"></a><span>19.6 限制k-form在子流形上</span></h3><h3><a name="197-圆上的无处vanishing-1-form" class="md-header-anchor"></a><span>19.7 圆上的无处vanishing 1-form</span></h3><p>&nbsp;</p><h2><a name="20-lie导数和内乘" class="md-header-anchor"></a><span>20 Lie导数和内乘</span></h2><h3><a name="201-矢量场族和微分形式" class="md-header-anchor"></a><span>20.1 矢量场族和微分形式</span></h3><h3><a name="202-矢量场的lie导数" class="md-header-anchor"></a><span>20.2 矢量场的Lie导数</span></h3><ul><li><span>[20.3] 光滑矢量场的Lie导数</span></li></ul><h3><a name="203-微分形式的lie导数" class="md-header-anchor"></a><span>20.3 微分形式的Lie导数</span></h3><ul><li><span>[20.5] form的Lie导数</span></li></ul><h3><a name="204-内乘" class="md-header-anchor"></a><span>20.4 内乘</span></h3><h3><a name="205-lie导数的性质" class="md-header-anchor"></a><span>20.5 Lie导数的性质</span></h3><h3><a name="206-lie导数和外导数的全局公式" class="md-header-anchor"></a><span>20.6 Lie导数和外导数的全局公式</span></h3><p>&nbsp;</p><h1><a name="积分" class="md-header-anchor"></a><span>[积分]</span></h1><p>&nbsp;</p><h2><a name="21-定向" class="md-header-anchor"></a><span>21 定向</span></h2><h3><a name="211-矢量空间的定向" class="md-header-anchor"></a><span>21.1 矢量空间的定向</span></h3><h3><a name="212-定向和n-covector" class="md-header-anchor"></a><span>21.2 定向和n-covector</span></h3><h3><a name="213-流形上的定向" class="md-header-anchor"></a><span>21.3 流形上的定向</span></h3><h3><a name="214-定向和微分形式" class="md-header-anchor"></a><span>21.4 定向和微分形式</span></h3><h3><a name="215-定向和atlas" class="md-header-anchor"></a><span>21.5 定向和atlas</span></h3><ul><li><span>[21.9] 定向atlas</span></li><li><span>[21.11] 两个定向atlas的等价</span></li></ul><p>&nbsp;</p><h2><a name="22-带边流形" class="md-header-anchor"></a><span>22 带边流形</span></h2><h3><a name="221-mathbbrn中区域的光滑不变性" class="md-header-anchor"></a><span>22.1 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>中区域的光滑不变性</span></h3><ul><li><span>[22.1] 欧氏空间的子集的函数在一点光滑; 在整个子集光滑</span></li></ul><h3><a name="222-带边流形" class="md-header-anchor"></a><span>22.2 带边流形</span></h3><ul><li><span>[22.6] 带边拓扑流形</span></li></ul><h3><a name="223-带边流形的边界" class="md-header-anchor"></a><span>22.3 带边流形的边界</span></h3><h3><a name="224-切矢量-微分形式-定向" class="md-header-anchor"></a><span>22.4 切矢量, 微分形式, 定向</span></h3><h3><a name="225-外指向矢量场" class="md-header-anchor"></a><span>22.5 外指向矢量场</span></h3><h3><a name="226-边界定向" class="md-header-anchor"></a><span>22.6 边界定向</span></h3><p>&nbsp;</p><h2><a name="23-流形上的积分" class="md-header-anchor"></a><span>23 流形上的积分</span></h2><h3><a name="231-mathbbrn上函数的riemann积分" class="md-header-anchor"></a><span>23.1 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>上函数的Riemann积分</span></h3><ul><li><span>[23.1] 欧氏空间上函数的Riemann可积性</span></li></ul><h3><a name="232-可积条件" class="md-header-anchor"></a><span>23.2 可积条件</span></h3><ul><li><span>[23.2] 欧氏空间子集的0测度</span></li><li><span>[23.6] 欧氏空间子集的积分区域</span></li></ul><h3><a name="233-mathbbrn上n-form的积分" class="md-header-anchor"></a><span>23.3 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>上n-form的积分</span></h3><ul><li><span>[23.8] 欧氏空间中form的积分</span></li></ul><h3><a name="234-流形的微分形式的积分" class="md-header-anchor"></a><span>23.4 流形的微分形式的积分</span></h3><ul><li><span>[23.10] 参数化集合; 流形子集的参数化</span></li></ul><h3><a name="235-stokes定理" class="md-header-anchor"></a><span>23.5 Stokes定理</span></h3><h3><a name="236-线积分和green定理" class="md-header-anchor"></a><span>23.6 线积分和Green定理</span></h3><p>&nbsp;</p><h1><a name="de-rham理论" class="md-header-anchor"></a><span>[de Rham理论]</span></h1><p>&nbsp;</p><h2><a name="24-de-rham上同调" class="md-header-anchor"></a><span>24 de Rham上同调</span></h2><h3><a name="241-de-rham上同调" class="md-header-anchor"></a><span>24.1 de Rham上同调</span></h3><h3><a name="242-de-rham上同调实例" class="md-header-anchor"></a><span>24.2 de Rham上同调实例</span></h3><h3><a name="243-微分同胚不变性" class="md-header-anchor"></a><span>24.3 微分同胚不变性</span></h3><h3><a name="244-de-rham上同调的环结构" class="md-header-anchor"></a><span>24.4 de Rham上同调的环结构</span></h3><p>&nbsp;</p><h2><a name="25-上同调中的长exact序列" class="md-header-anchor"></a><span>25 上同调中的长exact序列</span></h2><h3><a name="251-exact序列" class="md-header-anchor"></a><span>25.1 exact序列</span></h3><ul><li><span>[25.1] 矢量空间的同态的exact; exact序列; 短exact</span></li></ul><h3><a name="252-上链复形的上同调" class="md-header-anchor"></a><span>25.2 上链复形的上同调</span></h3><h3><a name="253-connecting同态" class="md-header-anchor"></a><span>25.3 connecting同态</span></h3><h3><a name="254-zig-zag引理" class="md-header-anchor"></a><span>25.4 zig-zag引理</span></h3><p>&nbsp;</p><h2><a name="26-mayer-vietoris序列" class="md-header-anchor"></a><span>26 Mayer-Vietoris序列</span></h2><h3><a name="261-mayer-vietoris序列" class="md-header-anchor"></a><span>26.1 Mayer-Vietoris序列</span></h3><h3><a name="262-圆的上同调" class="md-header-anchor"></a><span>26.2 圆的上同调</span></h3><h3><a name="263-euler特征" class="md-header-anchor"></a><span>26.3 Euler特征</span></h3><p>&nbsp;</p><h2><a name="27-同伦homotopy不变性" class="md-header-anchor"></a><span>27 同伦(homotopy)不变性</span></h2><h3><a name="271-光滑同伦" class="md-header-anchor"></a><span>27.1 光滑同伦</span></h3><h3><a name="272-同伦类型" class="md-header-anchor"></a><span>27.2 同伦类型</span></h3><ul><li><span>[27.3] 同伦等价; 同伦逆; 同伦类型</span></li><li><span>[27.5] 流形contractible</span></li></ul><h3><a name="273-形变收缩" class="md-header-anchor"></a><span>27.3 形变收缩</span></h3><ul><li><span>[27.7] 流形到子流形的retraction</span></li><li><span>[27.8] deformation retraction</span></li></ul><h3><a name="274-de-rham上同调的同伦公理" class="md-header-anchor"></a><span>27.4 de Rham上同调的同伦公理</span></h3><p>&nbsp;</p><h2><a name="28-de-rham上同调的计算" class="md-header-anchor"></a><span>28 de Rham上同调的计算</span></h2><h3><a name="281-torus的上同调矢量空间" class="md-header-anchor"></a><span>28.1 torus的上同调矢量空间</span></h3><h3><a name="282-torus的上同调环" class="md-header-anchor"></a><span>28.2 torus的上同调环</span></h3><h3><a name="283-g类型曲面的上同调" class="md-header-anchor"></a><span>28.3 g类型曲面的上同调</span></h3><p>&nbsp;</p><h2><a name="29-同伦不变性的证明" class="md-header-anchor"></a><span>29 同伦不变性的证明</span></h2><h3><a name="291-约化为双截面" class="md-header-anchor"></a><span>29.1 约化为双截面</span></h3><h3><a name="292-上链同伦" class="md-header-anchor"></a><span>29.2 上链同伦</span></h3><h3><a name="293-mtimes-mathbbr上的微分形式" class="md-header-anchor"></a><span>29.3 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.957ex" height="1.878ex" viewBox="0 -726.3 2995.4 808.8" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E102-MJMATHI-4D" d="M289 629Q289 635 232 637Q208 637 201 638T194 648Q194 649 196 659Q197 662 198 666T199 671T201 676T203 679T207 681T212 683T220 683T232 684Q238 684 262 684T307 683Q386 683 398 683T414 678Q415 674 451 396L487 117L510 154Q534 190 574 254T662 394Q837 673 839 675Q840 676 842 678T846 681L852 683H948Q965 683 988 683T1017 684Q1051 684 1051 673Q1051 668 1048 656T1045 643Q1041 637 1008 637Q968 636 957 634T939 623Q936 618 867 340T797 59Q797 55 798 54T805 50T822 48T855 46H886Q892 37 892 35Q892 19 885 5Q880 0 869 0Q864 0 828 1T736 2Q675 2 644 2T609 1Q592 1 592 11Q592 13 594 25Q598 41 602 43T625 46Q652 46 685 49Q699 52 704 61Q706 65 742 207T813 490T848 631L654 322Q458 10 453 5Q451 4 449 3Q444 0 433 0Q418 0 415 7Q413 11 374 317L335 624L267 354Q200 88 200 79Q206 46 272 46H282Q288 41 289 37T286 19Q282 3 278 1Q274 0 267 0Q265 0 255 0T221 1T157 2Q127 2 95 1T58 0Q43 0 39 2T35 11Q35 13 38 25T43 40Q45 46 65 46Q135 46 154 86Q158 92 223 354T289 629Z"></path><path stroke-width="0" id="E102-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E102-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E102-MJMATHI-4D" x="0" y="0"></use><use xlink:href="#E102-MJMAIN-D7" x="1273" y="0"></use><use xlink:href="#E102-MJAMS-52" x="2273" y="0"></use></g></svg></span><script type="math/tex">M\times \mathbb{R}</script><span>上的微分形式</span></h3><h3><a name="294-i0和i1之间的上链同伦" class="md-header-anchor"></a><span>29.4 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.855ex" height="2.626ex" viewBox="0 -726.3 798.6 1130.7" role="img" focusable="false" style="vertical-align: -0.939ex;"><defs><path stroke-width="0" id="E103-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E103-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="0" id="E103-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E103-MJMATHI-69" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E103-MJMAIN-2217" x="487" y="452"></use><use transform="scale(0.707)" xlink:href="#E103-MJMAIN-30" x="487" y="-434"></use></g></svg></span><script type="math/tex">i_0^*</script><span>和</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.855ex" height="2.533ex" viewBox="0 -726.3 798.6 1090.4" role="img" focusable="false" style="vertical-align: -0.846ex;"><defs><path stroke-width="0" id="E104-MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="0" id="E104-MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="0" id="E104-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E104-MJMATHI-69" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E104-MJMAIN-2217" x="487" y="452"></use><use transform="scale(0.707)" xlink:href="#E104-MJMAIN-31" x="487" y="-434"></use></g></svg></span><script type="math/tex">i_1^*</script><span>之间的上链同伦</span></h3><h3><a name="295-上链同伦的验证" class="md-header-anchor"></a><span>29.5 上链同伦的验证</span></h3><p>&nbsp;</p><h1><a name="appendix" class="md-header-anchor"></a><span>[Appendix]</span></h1><p>&nbsp;</p><h2><a name="a-点集拓扑学" class="md-header-anchor"></a><span>A 点集拓扑学</span></h2><h3><a name="a1-拓扑空间" class="md-header-anchor"></a><span>A.1 拓扑空间</span></h3><h3><a name="a2-子空间拓扑" class="md-header-anchor"></a><span>A.2 子空间拓扑</span></h3><h3><a name="a3-基" class="md-header-anchor"></a><span>A.3 基</span></h3><h3><a name="a4-第一和第二可数" class="md-header-anchor"></a><span>A.4 第一和第二可数</span></h3><h3><a name="a5-分离公理" class="md-header-anchor"></a><span>A.5 分离公理</span></h3><h3><a name="a6-积拓扑" class="md-header-anchor"></a><span>A.6 积拓扑</span></h3><h3><a name="a7-连续性" class="md-header-anchor"></a><span>A.7 连续性</span></h3><h3><a name="a8-紧致性" class="md-header-anchor"></a><span>A.8 紧致性</span></h3><h3><a name="a9-mathbbrn中的有界性" class="md-header-anchor"></a><span>A.9 </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>中的有界性</span></h3><h3><a name="a10-连通性" class="md-header-anchor"></a><span>A.10 连通性</span></h3><h3><a name="a11-连通部分" class="md-header-anchor"></a><span>A.11 连通部分</span></h3><h3><a name="a12-闭包" class="md-header-anchor"></a><span>A.12 闭包</span></h3><h3><a name="a13-收敛性" class="md-header-anchor"></a><span>A.13 收敛性</span></h3><p>&nbsp;</p><h2><a name="b-mathbbrn的反函数定理及相关结论" class="md-header-anchor"></a><span>B </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.895ex" height="2.11ex" viewBox="0 -806.1 1246.3 908.7" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E23-MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="0" id="E23-MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E23-MJAMS-52" x="0" y="0"></use><use transform="scale(0.707)" xlink:href="#E23-MJMATHI-6E" x="1021" y="579"></use></g></svg></span><script type="math/tex">\mathbb{R}^n</script><span>的反函数定理及相关结论</span></h2><h3><a name="b1-反函数定理" class="md-header-anchor"></a><span>B.1 反函数定理</span></h3><h3><a name="b2-隐函数定理" class="md-header-anchor"></a><span>B.2 隐函数定理</span></h3><h3><a name="b3-常秩定理" class="md-header-anchor"></a><span>B.3 常秩定理</span></h3><p>&nbsp;</p><h2><a name="c-单位分解的存在性" class="md-header-anchor"></a><span>C 单位分解的存在性</span></h2><p>&nbsp;</p><h2><a name="d-线性代数" class="md-header-anchor"></a><span>D 线性代数</span></h2><h3><a name="d1-商矢量空间" class="md-header-anchor"></a><span>D.1 商矢量空间</span></h3><h3><a name="d2-线性变换" class="md-header-anchor"></a><span>D.2 线性变换</span></h3><h3><a name="d3-直积与直和" class="md-header-anchor"></a><span>D.3 直积与直和</span></h3><p>&nbsp;</p><h2><a name="e-四元数和辛群" class="md-header-anchor"></a><span>E 四元数和辛群</span></h2><h3><a name="e1-线性映射的矩阵表示" class="md-header-anchor"></a><span>E.1 线性映射的矩阵表示</span></h3><h3><a name="e2-四元数共轭" class="md-header-anchor"></a><span>E.2 四元数共轭</span></h3><h3><a name="e3-四元数内积" class="md-header-anchor"></a><span>E.3 四元数内积</span></h3><h3><a name="e4-四元数的复数表示" class="md-header-anchor"></a><span>E.4 四元数的复数表示</span></h3><h3><a name="e5-由复分量表达的四元数内积" class="md-header-anchor"></a><span>E.5 由复分量表达的四元数内积</span></h3><h3><a name="e6-由复数表达的mathbbh-linearity" class="md-header-anchor"></a><span>E.6 由复数表达的</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.807ex" height="1.878ex" viewBox="0 -726.3 778 808.8" role="img" focusable="false" style="vertical-align: -0.192ex;"><defs><path stroke-width="0" id="E105-MJAMS-48" d="M14 666Q14 675 26 683H344L351 679Q361 665 351 655Q344 648 317 648Q287 645 282 641Q270 637 269 623T266 497V370H511V497Q511 519 510 553Q509 615 507 626T496 641H495Q489 645 459 648Q420 648 420 665Q420 672 426 679L433 683H751Q762 676 762 666Q762 648 724 648Q684 645 677 632Q675 626 675 341Q675 57 677 52Q684 38 724 35Q762 35 762 16Q762 6 751 -1H433L426 3Q420 10 420 17Q420 35 459 35Q501 38 506 52Q511 64 511 190V323H266V190Q266 60 271 52Q276 38 317 35Q342 35 351 28Q360 17 351 3L344 -1H26Q14 5 14 16Q14 35 53 35Q94 38 99 52Q104 60 104 341T99 632Q93 645 53 648Q14 648 14 666ZM233 341V553Q233 635 239 648H131Q134 641 135 638T137 603T139 517T139 341Q139 131 138 89T132 37Q131 36 131 35H239Q233 47 233 129V341ZM639 341V489Q639 548 639 576T640 620T642 639T646 648H537L542 639Q546 625 546 341Q546 130 545 88T538 37Q537 36 537 35H646Q643 41 643 42T641 55T639 84T639 140V341Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E105-MJAMS-48" x="0" y="0"></use></g></svg></span><script type="math/tex">\mathbb{H}</script><span>-linearity</span></h3><h3><a name="e7-辛群" class="md-header-anchor"></a><span>E.7 辛群</span></h3></div>
+</body>
+</html>
