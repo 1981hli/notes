@@ -1,0 +1,282 @@
+snippet .. "$$" A
+$$1$ $0
+endsnippet
+
+snippet .al "aligned" A
+
+  $$\begin{aligned}
+  $1 \\\\
+  \end{aligned}$$
+endsnippet
+
+#----------------------------------------------------
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fr)` "mathrm" iAm
+\mathrm{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fb)` "mathbf" iAm
+\mathbf{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fd)` "dot" iAm
+\dot{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fD)` "ddot" iAm
+\ddot{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fv)` "vec" iAm
+\vec{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fh)` "hat" iAm
+\hat{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;ft)` "tilde" iAm
+\tilde{``rv = m[1]``}
+endsnippet
+
+snippet `(\\?[a-zA-Z]\w*({?\w*})?)(;fa)` "bar" iAm
+\bar{``rv = m[1]``}
+endsnippet
+
+#----------------------------------------------------
+
+snippet ;h "high index" iAm
+^{$1}$0
+endsnippet
+
+snippet ;l "low index" iAm
+_{$1}$0
+endsnippet
+
+snippet ;8 "times" iAm
+\times
+endsnippet
+
+snippet ;/ "/" iAm
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet ;dd "d" iAm
+\mathrm{d}
+endsnippet
+
+snippet ;pp "partial" iAm
+\partial 
+endsnippet
+
+snippet ;nab "nabla" iAm
+\nabla
+endsnippet
+
+snippet ;sum "sum" iAm
+\sum_{$1}^{$2}$0
+endsnippet
+
+snippet ;int "int" iAm
+\int_{$1}^{$2}$0
+endsnippet
+
+snippet ;dbd "d/d" iAm
+\frac{\mathrm{d}$1}{\mathrm{d}$2}$0
+endsnippet
+
+snippet ;pbp "p/p" iAm
+\frac{\partial $1}{\partial $2}$0
+endsnippet
+
+snippet ;DbD "delta/delta" iAm
+\frac{\delta $1}{\delta $2}$0
+endsnippet
+
+snippet ;im "=>" iAm
+\Rightarrow
+endsnippet
+
+snippet ;iff "<=>" iAm
+\Leftrightarrow
+endsnippet
+
+snippet ;ul "underline" iAm
+\underline{$1}$0
+endsnippet
+
+snippet ;ut "underlinetext" iAm
+\underset{$2}{\underline{$1}}$0
+endsnippet
+
+#----------------------------------------------------
+
+snippet ( "()" iAm
+($1)$0
+endsnippet
+
+snippet [ "[]" iAm
+[$1]$0
+endsnippet
+
+snippet { "{}" iAm
+{$1}$0
+endsnippet
+
+snippet ;) "()" iAm
+\left($1\right)$0
+endsnippet
+
+snippet ;] "[]" iAm
+\left[$1\right]$0
+endsnippet
+
+snippet ;} "{}" iAm
+\left\{$1\right\\}$0
+endsnippet
+
+snippet ;> "<>" iAm
+\left\langle $1 \right\rangle $0
+endsnippet
+
+snippet ;bra "<|" iAm
+\left\langle $1 \right| $0
+endsnippet
+
+snippet ;ket "|>" iAm
+\left| $1 \right\rangle $0
+endsnippet
+
+#----------------------------------------------------
+
+snippet 'a "alpha" iAm
+\alpha
+endsnippet
+snippet 'b "beta" iAm
+\beta
+endsnippet
+snippet 'c "chi" iAm
+\chi
+endsnippet
+snippet 'd "delta" iAm
+\delta
+endsnippet
+snippet 'e "epsilon" iAm
+\epsilon
+endsnippet
+
+snippet 'f "phi" iAm
+\phi
+endsnippet
+snippet 'g "gamma" iAm
+\gamma
+endsnippet
+snippet 'h "eta" iAm
+\eta
+endsnippet
+snippet 'i "iota" iAm
+\iota
+endsnippet
+snippet 'j "phi" iAm
+\varphi
+endsnippet
+
+snippet 'k "kappa" iAm
+\kappa
+endsnippet
+snippet 'l "lambda" iAm
+\lambda
+endsnippet
+snippet 'm "mu" iAm
+\mu
+endsnippet
+snippet 'n "nu" iAm
+\nu
+endsnippet
+snippet 'o "omega" iAm
+\omega
+endsnippet
+
+snippet 'p "pi" iAm
+\pi
+endsnippet
+snippet 'q "theta" iAm
+\theta
+endsnippet
+snippet 'r "rho" iAm
+\rho
+endsnippet
+snippet 's "sigma" iAm
+\sigma
+endsnippet
+snippet 't "tau" iAm
+\tau
+endsnippet
+
+snippet 'u "upsilon" iAm
+\upsilon
+endsnippet
+snippet 'x "xi" iAm
+\xi
+endsnippet
+snippet 'y "psi" iAm
+\psi
+endsnippet
+
+snippet 'z "zeta" iAm
+\zeta
+endsnippet
+
+#----------------------------------------------------
+
+snippet 'D "Delta" iAm
+\Delta
+endsnippet
+
+snippet 'F "Phi" iAm
+\Phi
+endsnippet
+snippet 'G "Gamma" iAm
+\Gamma
+endsnippet
+
+snippet 'L "Lambda" iAm
+\Lambda
+endsnippet
+snippet 'O "Omega" iAm
+\Omega
+endsnippet
+
+snippet 'P "Pi" iAm
+\Pi
+endsnippet
+snippet 'Q "Theta" iAm
+\Theta
+endsnippet
+snippet 'S "Sigma" iAm
+\Sigma
+endsnippet
+
+snippet 'U "Upsilon" iAm
+\Upsilon
+endsnippet
+snippet 'X "Xi" iAm
+\Xi
+endsnippet
+snippet 'Y "Psi" iAm
+\Psi
+endsnippet
+
+#----------------------------------------------------
+
+snippet ;tu "TX" iAm
+$1^{$2}$0
+endsnippet
+
+snippet ;td "Tx" iAm
+$1_{$2}$0
+endsnippet
+
+snippet ;ttud "TXx" iAm
+$1^{$2}{}_{$3}$4
+endsnippet
